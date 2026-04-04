@@ -1,6 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 (global-display-line-numbers-mode)
 (setq display-line-numbers-type 'relative)
+(menu-bar-mode 0)
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
@@ -9,6 +10,8 @@
        (package-install 'evil))
 
 (require 'evil)
+
+(evil-mode 1)
 
 ;; move trough windows
 (global-set-key (kbd "C-c w") 'windmove-up)
@@ -32,14 +35,17 @@
  '(backup-directory-alist '((".*" . "~/.emacs.d/backups/")))
  '(blink-cursor-mode nil)
  '(cua-mode t)
- '(custom-enabled-themes '(modus-vivendi-tritanopia))
+ '(custom-enabled-themes '(nord))
+ '(custom-safe-themes
+   '("5a4cdc4365122d1a17a7ad93b6e3370ffe95db87ed17a38a94713f6ffe0d8ceb"
+     "01a9797244146bbae39b18ef37e6f2ca5bebded90d9fe3a2f342a9e863aaa4fd"
+     default))
  '(display-line-numbers-type 'relative)
  '(electric-pair-mode t)
  '(global-display-line-numbers-mode t)
  '(js-indent-level 8)
  '(package-selected-packages
-   '(## eldoc-mouse evil go-mode gruvbox-theme listen multiple-cursors
-	org rust-mode tramp))
+   '(eglot eldoc evil go-mode gruber-darker-theme nord-theme org prettier))
  '(ring-bell-function 'ignore)
  '(scroll-bar-mode nil)
  '(scroll-conservatively 15)
@@ -52,5 +58,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(line-number ((t (:inherit default :background "black" :foreground "#989898")))))
+ )
 (put 'upcase-region 'disabled nil)
